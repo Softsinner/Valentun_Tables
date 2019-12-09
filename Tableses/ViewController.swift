@@ -8,7 +8,7 @@
 
 import UIKit
 
-var sections = ["Учні", "Вільні слухачі", "Вибули"]
+var sections = ["Учні", "Вибули", "Вільні слухачі"]
 
 var students = ["Бондар Павло", "Вождай Ігор", "Демченко Михайло", "Запорожець Максим", "Ілюшенко Ілля", "Nedopaka Alexander", "Таченко Дмитро", "Гуріненко Валентин"]
 
@@ -30,15 +30,14 @@ class ViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection  section: Int) -> Int {
-            switch section {
-            case 0:
-                return 8
-            case 1:
-            return 2
-            default:
-                return 6
-            }
-            
+                switch section {
+                case 0:
+                    return 8
+                case 1:
+                    return 2
+                default:
+                    return 6
+                }
             }
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,18 +46,26 @@ class ViewController: UIViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: identifire, for: indexPath)
             
-            cell.textLabel?.text = "Гуріненко Валентин"
+            
+            
+            cell.textLabel?.text = "\(students)"
             return cell
         }
-    
     }
     
 
 // MARK: - UITableViewDelegate
     extension ViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            "Section \(section)"
-        }
+                switch section {
+                case 0:
+                    return "\(sections[0])"
+                case 1:
+                    return "\(sections[1])"
+                default:
+                    return "\(sections[2])"
+                }
+            }
     }
     
 
