@@ -42,7 +42,10 @@ class ViewController: UIViewController {
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            let identifire = indexPath.section == 0 ? "BasicCell" : "BasicCell1"
+            var identifire = indexPath.section == 0 ? "BasicCell" : "BasicCell1"
+            if indexPath.section == 2 {
+                identifire = "BasicCell2"
+            }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: identifire, for: indexPath)
             
