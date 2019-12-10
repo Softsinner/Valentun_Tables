@@ -49,9 +49,14 @@ class ViewController: UIViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: identifire, for: indexPath)
             
-            
-            
-            cell.textLabel?.text = "\(students)"
+            switch indexPath.section {
+            case 0:
+                cell.textLabel?.text = students[indexPath.row]
+            case 1:
+                cell.textLabel?.text = off[indexPath.row]
+            default:
+                cell.textLabel?.text = free[indexPath.row]
+            }
             return cell
         }
     }
